@@ -1,0 +1,38 @@
+ 									Google Custom Search
+
+Step 1) Go to this link "https://cse.google.com" and click on the "new search engine". After that give some websites where you want to search the data. Lastly give a 		meaningful name to the search engine.
+Step 2) Goto the setup. Here you get the search engine id and public url for our search engine. We can also add image and video search. Click on the search the entire 		web and it will search all around the google. We can also add, remove and update the wesites that are previously given by us.
+Step 3) Also we can customize the search bar. This can be done by clicking the "Look and feel". In this we can changes the style of the input box.
+Step 4) After that we need the code to implement the search feature in our website.  For this click on the 'GET CODE' that is displaying in the setup tab. Just copy 		and paste that lines in your code.
+
+			    					    Google Custom Search JSON API
+
+Step 1) Goto the "https://console.developers.google.com". 
+Step 2) Create a new project and give a meaningful name to that project.
+Step 3) Click on the Library button. and then search for "google custom search api" . after that click that api so that it is enable i.e. ENABLE this API.
+Step 4) After that click on the "Credentials" and then create Credentials > API key. Then it will create a API for you.
+Step 5) To use that API key in your code https://www.googleapis.com/customsearch/v1?key=Your-API-KEY&cx=ENGINE-ID&q=QUERY"
+Step 6) Here engine id is that id which is generated previously in the "Google Custom search". and query is the dat whuch you want to search.
+Step 7)  Here is the working code.
+	<html>
+	  <head>
+	    <title>JSON Custom Search API Example</title>
+	  </head>
+	  <body>
+	    <div id="content"></div>
+	     <script>
+	      function hndlr(response) {
+	      for (var i = 0; i < response.items.length; i++) {
+		var item = response.items[i];
+		// console.log(item)
+		// in production code, item.htmlTitle should have the HTML entities escaped.
+		document.getElementById("content").innerHTML += "<br>" + item.htmlTitle;
+	      }
+	    }
+	    </script>
+	    <script src="https://www.googleapis.com/customsearch/v1?key=Your-API-KEY&cx=ENGINE-ID&q=QUERY&callback=hndlr">
+	    </script>
+	   </body>
+	</html>
+
+
