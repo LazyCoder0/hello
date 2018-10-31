@@ -1,0 +1,83 @@
+Step 1) Node.js
+	Check node.js is installed or not. To test this run the following command in your terminal `nodejs --version`.
+	If the version numbers is displayed then nodejs is installed in your computer.
+
+	If the version number is not displayed the install node js by typing following command. `sudo apt-get install nodejs`.
+	Chage nodejs to node by following command `sudo ln -s /usr/bin/nodejs /usr/bin/node`.
+
+Step 2) Install Node Package Manger
+	If you have already npm install in your machine then skip this step. To test this run this command `npm --version`
+	If npm is not installed in your machine then
+	Install npm by following command `sudo apt-get install npm`
+
+
+Step 3) Installing Cordova 
+	For installing Cordova in your machine type the following command in your terminal `sudo npm install -g cordova`.
+	To check whether it is installed or not. Run `cordova --version` command. 
+
+Step 4) Create a cordova App
+	To create a new project oin cordova run the following command:
+	  `cordova create hello com.example.hello HelloWorld`
+
+	Here Your project name is `HelloWorld` and directory name is `hello` and `com.example.hello` this is the package name i.e. When you install this app on your phone you can find all your data in 
+	com.example.hello folder that is inside the android folder.
+
+Step 5) Insatll platforms
+	Go to the `hello` folder by typing `cd hello`.
+	Add platform by typing following command.
+		`cordova platform add ios` for ios
+		`cordova platform add android` for android
+		`cordova platform add browser` for browser
+	To list out the platform type:  `cordova platform ls` 
+
+Step 6) Pre- requisities for building
+	Android platform Guide (https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html#requirements-and-support)
+	
+	Step 6.1) Install Open JDK
+		  You can either download it from the browser or you can install it from the console. 
+		  From browser goto this link (http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+		 
+		  From console: `sudo apt install openjdk-8-jdk`
+		  Check it by `java -version`
+
+	Step 6.2) Install Android SDK tools
+		  Go to the page (https://developer.android.com/studio/) and download "sdk tools" (sdk-tools-linux-4333796.zip) 
+		  When downloaded, unpack the files. Here are commands for unpacking the Android SDK folder into your home directory:	
+			cd
+			mv ~/Downloads/android-sdk_r23.0.2-linux.tgz .
+			tar zxvf android-sdk_r23.0.2-linux.tgz
+			rm android-sdk_r23.0.2-linux.tgz
+		
+		  The Android SDK Tools need to be added to the system path. Edit .bashrc to contain the following lines at the end. Make sure you use the actual names of the files and folders on your 			  system:
+		  JAVA_HOME=~/java/jdk1.8.0_11
+		  PATH=PATH: /java/jdk1.8.011/binexportJAVAHOMEPATH=PATH:~/java/jdk1.8.0_11/bin export JAVA_HOME PATH=PATH: /java/jdk1.8.01​1/binexportJAVAH​OMEPATH=PATH:~/android-sdk-linux/platform-tools
+		  PATH=$PATH:~/android-sdk-linux/tools
+		  export PATH
+			
+	Step 6.3) Install the gradle
+		  It can be done by two ways either you install gradle from this link (https://gradle.org/install/)
+		  or you can install Android Studio in your machine by this gradle is installed automatically and you will also get an emulator.
+	
+	Step 6.4) Error android-target is not installed:
+		  Check the android-target in the android studio (tools->SDK Manager) normally it is  27 or 28 i.e. API level.
+		  Goto /hello/platforms/android/ this folder and change the android target in project.properties files
+		  Goto hello/platforms/android/CordovaLib this folder and change the android target in project.properties files.
+
+	These are the steps for building the cordova application in the android.
+
+Step 7) Write your code
+	There is a folder named `www` in your directory
+	Here you find the index.html, js and css files where you can add your code.
+
+Step 8) Build the App 
+	`cordova build android` for android
+	`cordova build ios` for ios
+
+Step 9) Run the app
+	`cordova emulate android`
+	`cordova run android`
+	You can either install an emulator or your can connect your android device to check the aplication	
+
+
+Reference: ttps://cordova.apache.org/docs/en/latest/guide/cli/index.html 
+Still if you are facing some issue go to this link http://evothings.com/doc/build/cordova-install-linux.html
